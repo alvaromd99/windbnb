@@ -1,0 +1,35 @@
+.dropdown {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.dropdown-btn {
+	width: inherit;
+	height: inherit;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.dropdown .dropdown-content {
+	width: 200px;
+	position: absolute;
+	top: 80px;
+}
+.dropdown .isNotActive {
+	display: none;
+}
+
+.dropdown .dropdown-content .dropdown-item {
+	padding: 10px;
+	cursor: pointer;
+	transition: all 0.2s linear;
+}
+
+.dropdown .dropdown-content .dropdown-item:hover {
+	color: red;
+}

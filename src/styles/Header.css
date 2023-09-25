@@ -1,0 +1,65 @@
+header {
+	width: 100%;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.container select {
+	border: none;
+	outline: none;
+	background: transparent;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.container input[type='number'] {
+	border: none;
+	outline: none;
+	background: transparent;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.search-bar {
+	width: 400px;
+	height: 50px;
+	outline: 1px solid black;
+	display: flex;
+	align-items: center;
+	border-radius: 10px;
+}
+
+.search-bar .container {
+	height: 100%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+}
+
+.search-bar .location {
+	width: 200px;
+	display: flex;
+	justify-content: center;
+}
+
+.search-bar .location select {
+	width: 80%;
+}
+
+.search-bar.location option {
+	width: 100%;
+}
+
+.search-bar .guest {
+	width: 140px;
+}
+
+.search-bar .icon {
+	width: 60px;
+}

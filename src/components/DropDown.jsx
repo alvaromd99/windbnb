@@ -9,12 +9,7 @@ export default function DropDown({ cities, selected, setSelected }) {
 	const otherCities = citiesArr.filter((c) => c !== selected)
 	const [isActive, setIsActive] = useState(false)
 
-	useEffect(() => {
-		setSelected(citiesArr[0])
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
-
-	const changeSelected = (city) => {
+	const changeSelectedCity = (city) => {
 		setSelected(city)
 		setIsActive(false)
 	}
@@ -50,7 +45,7 @@ export default function DropDown({ cities, selected, setSelected }) {
 					<div
 						className='dropdown-item'
 						key={index}
-						onClick={() => changeSelected(city)}>
+						onClick={() => changeSelectedCity(city)}>
 						{city} , Finland
 					</div>
 				))}

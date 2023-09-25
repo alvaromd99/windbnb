@@ -1,16 +1,23 @@
-import data from '../../windbnb-master/stays.json'
 import '../styles/Header.css'
 import SearchIcon from '../icons/SearchIcon'
 import DropDown from './DropDown'
+import { cities } from '../data/Cities'
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 
-export default function Header() {
-	const [selected, setSelected] = useState(false)
+export default function Header({ setFilters }) {
+	const [selectedCity, setSelectedCity] = useState('Helsinki')
+	const [guestsNumber, setGuests] = useState('')
 
-	const cities = new Set()
+	const handleGuestsChange = (e) => {
+		const newValue = e.target.value
 
-	for (const item of data) {
-		cities.add(item.city)
+		// Verificar si la entrada es un número válido o una cadena vacía
+		if (newValue === '') {
+			setGuests('')
+		} else if (/^\d+$/.test(newValue)) {
+			setGuests(Number(newValue))
+		}
 	}
 
 	return (
@@ -20,8 +27,8 @@ export default function Header() {
 				<div className='container location'>
 					<DropDown
 						cities={cities}
-						selected={selected}
-						setSelected={setSelected}
+						selected={selectedCity}
+						setSelected={setSelectedCity}
 					/>
 				</div>
 				<div className='container guest'>
@@ -30,12 +37,26 @@ export default function Header() {
 						name='guest-selector'
 						id='guest-selector'
 						placeholder='Add guests'
+						value={guestsNumber}
+						onChange={handleGuestsChange}
 					/>
 				</div>
-				<div className='container icon'>
+				<div
+					className='container icon'
+					onClick={() =>
+						setFilters((prevState) => ({
+							...prevState,
+							city: selectedCity,
+							guests: guestsNumber,
+						}))
+					}>
 					<SearchIcon />
 				</div>
 			</div>
 		</header>
 	)
+}
+Header.propTypes = {
+	filters: PropTypes.object,
+	setFilters: PropTypes.func,
 }

@@ -17,8 +17,11 @@
 
 .dropdown .dropdown-content {
 	width: 200px;
+	background-color: white;
+	outline: 1px solid black;
+	border-radius: 12px;
 	position: absolute;
-	top: 80px;
+	top: 70px;
 }
 .dropdown .isNotActive {
 	display: none;
@@ -28,6 +31,11 @@
 	padding: 10px;
 	cursor: pointer;
 	transition: all 0.2s linear;
+}
+
+.dropdown .dropdown-content .dropdown-item:nth-child(1),
+.dropdown .dropdown-content .dropdown-item:nth-child(2) {
+	border-bottom: 1px solid grey;
 }
 
 .dropdown .dropdown-content .dropdown-item:hover {

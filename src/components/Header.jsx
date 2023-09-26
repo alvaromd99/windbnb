@@ -11,18 +11,28 @@ export default function Header({ setFilters }) {
 
 	const handleGuestsChange = (e) => {
 		const newValue = e.target.value
+		// Verificar si la entrada es un número
+		const regex = /^\d+$/
 
-		// Verificar si la entrada es un número válido o una cadena vacía
-		if (newValue === '') {
-			setGuests('')
-		} else if (/^\d+$/.test(newValue)) {
+		setGuests('')
+
+		if (regex.test(newValue) && newValue !== '') {
 			setGuests(Number(newValue))
 		}
 	}
 
 	return (
 		<header>
-			<img src='../../windbnb-master/logo.png' alt='Logo' />
+			<img
+				src='../../windbnb-master/logo.png'
+				alt='Logo'
+				onClick={() => {
+					setFilters({
+						city: 'all',
+						guests: 0,
+					})
+				}}
+			/>
 			<div className='search-bar'>
 				<div className='container location'>
 					<DropDown

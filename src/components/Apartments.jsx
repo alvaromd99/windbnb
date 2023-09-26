@@ -1,14 +1,20 @@
 import PropTypes from 'prop-types'
+import '../styles/Apartments.css'
+import CardApartments from './CardApartments'
 
 export default function Apartments({ apartments }) {
-	console.log(apartments)
 	return (
-		<div className='apartments-cont'>
-			{apartments.map((apartment, index) => (
-				<div className='card' key={index}>
-					<img src={apartment.photo} alt={apartment.title} />
-				</div>
-			))}
+		<div className='cont'>
+			<div className='header'>
+				<h2>Stays in Finland</h2>
+				<p>12+ stays</p>
+			</div>
+			<div className='apartments-cont'>
+				{apartments.length === 0 && <h2>No match</h2>}
+				{apartments.map((apartment, index) => (
+					<CardApartments apartment={apartment} key={index} />
+				))}
+			</div>
 		</div>
 	)
 }
